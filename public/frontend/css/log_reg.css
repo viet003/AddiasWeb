@@ -59,6 +59,7 @@ a:hover {
 
 .inner {
 	min-width: 850px;
+	min-height: 500px;
 	margin: auto;
 	padding-top: 68px;
 	padding-bottom: 48px;
@@ -74,6 +75,12 @@ a:hover {
 		color: #333;
 		letter-spacing: 2px;
 	}
+}
+
+.forgot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 form {

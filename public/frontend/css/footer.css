@@ -11,7 +11,7 @@
     margin: 0 auto;
 }
 
-.members>.over {
+.members .over {
     height: 100%;
     display: flex;
     justify-content: space-around;
@@ -19,7 +19,7 @@
     flex-direction: row;
 }
 
-.members>.over>h1 {
+.members .over h1 {
     font-size: 30px;
     font-weight: bold;
 }
@@ -31,7 +31,7 @@
     background-color: white;
 }
 
-.info>.over {
+.info .over {
     height: 100%;
     display: grid;
     grid-template-columns: 15% 15% 20% 18% 20% 10%;
@@ -44,20 +44,21 @@
     display: flex;
     flex-direction: column;
     padding: 25px 10px;
+    /* gap: 15px; */
 }
 
-.properties>h1 {
+.properties h1 {
     font-size: 18px;
 }
 
-.properties>a {
+.properties a {
     text-decoration: none;
     color: black;
     line-height: 2;
     font-size: 13px;
 }
 
-.properties:last-child>a {
+.properties:last-child a {
     text-decoration: none;
     color: black;
     font-size: 20px;
@@ -73,23 +74,23 @@
     align-items: center;
 }
 
-.policy>ul {
+.policy ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
 }
 
-.policy>ul>li {
+.policy ul li {
     padding: 0 20px;
     border-left: 1px solid #6d8194;
 }
 
-.policy>ul>li:first-of-type {
+.policy ul li:first-of-type {
     border-left: none;
 }
 
-.policy>ul>li>a {
+.policy ul li a {
     text-decoration: none;
     color: gainsboro;
     font-size: 11px;
@@ -97,7 +98,7 @@
 
 /* Phần dành riêng cho thiết kế button*/
 
-.button {
+.button-dk {
     position: relative;
     cursor: pointer;
 }
@@ -105,7 +106,7 @@
 ._main_button {
     height: 50px;
     width: 220px;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -115,7 +116,7 @@
     left: -2px;
 }
 
-.button::after {
+.button-dk::after {
     display: block;
     content: "";
     height: 49px;
@@ -125,14 +126,15 @@
     z-index: 1;
 }
 
-._main_button>p {
+._main_button p {
     text-decoration: none;
     color: white;
     transition: color .3s;
     font-size: 16px;
+    text-align: center;
 }
 
-._main_button:hover>p {
+._main_button:hover p {
     color: #767677;
 }
 
@@ -172,7 +174,7 @@
     width: 50px;
 }
 
-._logo_1>img {
+._logo_1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -219,11 +221,11 @@
     row-gap: 5px;
 }
 
-.FAQ_UL>li {
+.FAQ_UL li {
     text-align: center;
 }
 
-.FAQ_UL>li>a {
+.FAQ_UL li a {
     color: gainsboro;
     font-size: 13px;
 }
@@ -240,7 +242,7 @@
     transition: left .3s ease-in-out;
 }
 
-.menu_hid>.wrap {
+.menu_hid .wrap {
     width: 80%;
     margin: 20px auto;
 }
@@ -251,11 +253,11 @@
     cursor: pointer;
 }
 
-.close>p {
+.close p {
     transition: all .3s ease-in-out;
 }
 
-.close:hover>p {
+.close:hover p {
     background-color: black;
     color: white;
 }
@@ -306,7 +308,7 @@
     border-top: 1px solid black;
 }
 
-.list_supporta>.clist {
+.list_supporta .clist {
     margin-left: 0px;
     margin-top: 10px;
 }
@@ -331,7 +333,7 @@
     width: 50px;
 }
 
-._logo_1>img {
+._logo_1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -378,11 +380,11 @@
     row-gap: 5px;
 }
 
-.FAQ_UL>li {
+.FAQ_UL li {
     text-align: center;
 }
 
-.FAQ_UL>li>a {
+.FAQ_UL li a {
     color: gainsboro;
     font-size: 13px;
 }
@@ -399,7 +401,7 @@
     transition: left .3s ease-in-out;
 }
 
-.menu_hid>.wrap {
+.menu_hid .wrap {
     width: 80%;
     margin: 20px auto;
 }
@@ -410,11 +412,11 @@
     cursor: pointer;
 }
 
-.close>p {
+.close p {
     transition: all .3s ease-in-out;
 }
 
-.close:hover>p {
+.close:hover p {
     background-color: black;
     color: white;
 }
@@ -465,7 +467,7 @@
     border-top: 1px solid black;
 }
 
-.list_supporta>.clist {
+.list_supporta .clist {
     margin-left: 0px;
     margin-top: 10px;
 }
@@ -486,16 +488,16 @@
         grid-template-columns: 15% 55% 30%;
     }
 
-    .info>.over {
+    .info .over {
         width: 90%;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         flex-direction: column;
     }
 
-    .subnav>li>a {
+    .subnav li a {
         font-size: 13px !important;
     }
 
@@ -516,7 +518,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .about_me>.wrap {
+    .about_me .wrap {
         display: flex;
         flex-direction: column;
     }
@@ -525,7 +527,7 @@
         height: 200px;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -534,7 +536,7 @@
         gap: 20px;
     }
 
-    .members>.over>h1 {
+    .members .over h1 {
         text-align: center;
         font-size: 23px;
     }
@@ -577,7 +579,7 @@
         align-items: center;
     }
 
-    .intro>._wrap {
+    .intro ._wrap {
         width: 80%;
         margin: 0 auto;
     }
@@ -586,15 +588,15 @@
         display: block;
     }
 
-    .intro>._wrap>div>h1 {
+    .intro ._wrap div h1 {
         font-size: 20px;
     }
 
-    .intro>._wrap>div>h3 {
+    .intro ._wrap div h3 {
         font-size: 30px;
     }
 
-    .intro>._wrap>div>p {
+    .intro ._wrap div p {
         font-size: 16px;
     }
 
@@ -603,11 +605,11 @@
         grid-template-columns: repeat(2, auto);
     }
 
-    .policy>ul>li:nth-of-type(5) {
+    .policy ul li:nth-of-type(5) {
         grid-column: span 2;
     }
 
-    .policy>ul>li {
+    .policy ul li {
         padding: 0 20px;
         border-left: none;
         margin: 5px 0;
@@ -634,12 +636,12 @@
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         min-height: 320px;
         max-height: 400px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 400px;
     }
@@ -648,7 +650,7 @@
         height: 400px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 45%;
         display: flex;
@@ -662,7 +664,7 @@
 
 @media only screen and (max-width: 740px) {
 
-    .post>span {
+    .post span {
         font-size: 14px;
     }
 
@@ -670,7 +672,7 @@
         grid-template-columns: 25% 50% 25%;
     }
 
-    .ship>.wrap {
+    .ship .wrap {
         width: 95%;
         margin: 10px auto;
     }
@@ -687,11 +689,11 @@
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         height: 320px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 300px;
     }
@@ -705,11 +707,11 @@
         width: 170px;
     }
 
-    .button::after {
+    .button-dk::after {
         width: 169px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 70%;
         display: flex;

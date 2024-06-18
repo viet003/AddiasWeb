@@ -26,7 +26,7 @@
                         công nghệ hiệu năng cao.</p>
                     <div>
                         <a href="">
-                            <div class="button">
+                            <div class="button-dk">
                                 <div class="_main_button">
                                     <p>MUA ĐỒ NAM <i class="fa-solid fa-arrow-right"></i></p>
                                 </div>
@@ -34,7 +34,7 @@
                         </a>
                         <br>
                         <a href="">
-                            <div class="button">
+                            <div class="button-dk">
                                 <div class="_main_button">
                                     <p>MUA ĐỒ NỮ<i class="fa-solid fa-arrow-right"></i></p>
                                 </div>
@@ -220,7 +220,7 @@
                     <br>
                     <div>
                         <a href="">
-                            <div class="button">
+                            <div class="button-dk">
                                 <div class="_main_button">
                                     <p>MUA BỘ SƯU TẬP<i class="fa-solid fa-arrow-right"></i></p>
                                 </div>

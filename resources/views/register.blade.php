@@ -64,19 +64,19 @@
 		style="position: absolute; top: 30px; right: 20px; text-align:start; font-size: 13px">
 		<ul style="list-style-type: none; padding: 0;">
 			@if ($errors->any())
-			@foreach ($errors->all() as $error)
-			<li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">{{
-				$error }} <i class="fa-solid fa-user-check"></i></li>
-			<script>
-				// Tự động ẩn thông báo sau 3 giây
-                    setTimeout(function () {
-                        var alertDiv = document.getElementById('alert');
-                        if (alertDiv) {
-                            alertDiv.style.display = 'none';
-                        }
-                    }, 3000); // 3s
-			</script>
-			@endforeach
+				@foreach ($errors->all() as $error)
+					<li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">{{
+						$error }} <i class="fa-solid fa-user-check"></i></li>
+					<script>
+						// Tự động ẩn thông báo sau 3 giây
+							setTimeout(function () {
+								var alertDiv = document.getElementById('alert');
+								if (alertDiv) {
+									alertDiv.style.display = 'none';
+								}
+							}, 3000); // 3s
+					</script>
+				@endforeach
 			@endif
 		</ul>
 	</div>

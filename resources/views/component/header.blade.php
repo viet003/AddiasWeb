@@ -46,7 +46,7 @@
     </div>
     <header class="title">
         <div class="text_animation">
-            <p style="cursor: pointer;">GIAO HÀNG MIỄN PHÍ CHO CÁC THÀNH VIÊN CỦA ADICLUB&nbsp&nbsp<i
+            <p style="cursor: pointer; text-align:center; height:5px; color:#fff">GIAO HÀNG MIỄN PHÍ CHO CÁC THÀNH VIÊN CỦA ADICLUB&nbsp&nbsp<i
                     class="fa-solid fa-chevron-down"></i></p>
         </div>
         <div class="navbar">
@@ -344,18 +344,18 @@
                 </ul>
             </div>
             <div class="search_help">
-                <div class="help">
+                <div class="help_mn">
                     <ul class="help_ul">
-                        <li><a href="">Trợ giúp</a></li>
-                        <li><a href="">Trình theo dõi đơn hàng</a></li>
+                        <li><button class="button-mn">Trợ giúp</button></li>
+                        <li><button class="button-mn">Trình theo dõi đơn hàng</button></li>
                         <li>
                             @if(Auth::check())
                                 <form action="{{ url('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit">Đăng xuất</button>
+                                    <button class="button-mn" type="submit">Đăng xuất</button>
                                 </form>
                             @else
-                                <a href="{{ route('register') }}">Đăng ký thành viên</a>
+                                <a class="button-mn" href="{{ route('register') }}">Đăng ký thành viên</a>
                             @endif
                         </li>                        
                         <li class="language_select">
@@ -389,7 +389,12 @@
                         <a href="{{ route('login') }}" style="font-size: 20px"><i class="fa-regular fa-user"></i></a>
                     @endif
                     <i class="fa-regular fa-heart"></i>
-                    <i class="fa-solid fa-bag-shopping"></i>
+                    <div class="cart-icon">
+                        <a style="font-size: 22px; cursor: pointer;" href="{{ route('cart.show') }}"><i class="fa-solid fa-bag-shopping"></i></a>
+                        @if (Auth::check())
+                            <p class="total-count">{{ $totalItems }}</p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

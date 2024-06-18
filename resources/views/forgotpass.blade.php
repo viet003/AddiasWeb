@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Đăng nhập</title>
+    <title>Quên mật khẩu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
@@ -20,37 +20,39 @@
 <body>
     <div class="wrapper" style="background-image: url('{{ asset('frontend/images/bg-registration-form-2.jpg') }}');">
         <div class="inner">
-            <form action="{{ route('auth.login') }}" method="POST">
+            <form action="{{ route('auth.forgotpass') }}" method="POST">
                 @csrf
                 <!-- Add this to include a CSRF token for security -->
-                <h3>Đăng nhập</h3>
+                <h3>Quên mật khẩu</h3>
                 <div class="form-wrapper">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" name="email" id="email">
                 </div>
-                <div class="form-wrapper">
+                {{-- <div class="form-wrapper">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" name="password" id="password">
-                </div>
+                </div> --}}
                 <div class="form-wrapper gto-register">
-                    <p>Chưa có tài khoản?</p>
-                    <a style="color:gray" href="{{ url('register') }}">Đăng ký</a>
+                    <a style="color: gray" href="{{ url('login') }}">Đăng nhập</a>
+                    <a style="color: gray" href="{{ url('register') }}">Đăng ký</a>
                 </div>
-                
-                <div class="forgot" >
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="remember" id="rememberCheckbox"> Remember me.
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <a style="color:gray" href="{{ url('forgotpass') }}">Quên mật khẩu</a>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember" id="rememberCheckbox"> Remember me.
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
 
-                <button type="submit">Login Now</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
+
+    @if (session('success'))
+    <div class="alert alert-success" style="color: black;">
+        {{ session('success') }}
+    </div>
+    @endif
 
 
     <div class="alert alert-danger" id="alert"
@@ -69,7 +71,6 @@
                     }, 3000); // 3s
                 </script>
             @endif
-            
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">

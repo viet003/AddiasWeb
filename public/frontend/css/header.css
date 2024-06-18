@@ -1,8 +1,8 @@
 body,
 html {
     font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
 }
 
 * {
@@ -16,13 +16,19 @@ a {
     color: black;
 }
 
-button {
+.button-mn {
     border: none;
     outline: none;
     background: transparent;
     color: gray;
     font-size: 11px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 li button:hover {
@@ -56,19 +62,19 @@ li button:hover {
     overflow: hidden;
 }
 
-.ship>.wrap {
+.ship .wrap {
     width: 60%;
     margin: 50px auto;
     display: grid;
     grid-template-rows: 20% 80%;
 }
 
-.ship>.wrap>div {
+.ship .wrap div {
     display: flex;
     justify-content: flex-end;
 }
 
-.ship>.wrap>div>.x {
+.ship .wrap div .x {
     width: 30px;
     height: 30px;
     border: 1px solid black;
@@ -106,12 +112,13 @@ li button:hover {
 
 /* Phần thanh tiêu đề - gồm tất cả animation , css ..*/
 .title {
-    position: fixed;
+    position: fixed !important;
     width: 100%;
     left: 0px;
     top: 0px;
     z-index: 1000;
     display: block;
+    
 }
 
 
@@ -150,15 +157,16 @@ li button:hover {
 
 /*-------------------------------------*/
 /* Phần chuyển đổi chữ - clss text_animation*/
-.title>.text_animation {
+.text_animation {
     height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     font-size: 11px;
     background-color: black;
     color: white;
     font-weight: bold;
+    min-height: 40px;
 }
 
 @keyframes changeText {
@@ -184,6 +192,8 @@ li button:hover {
     padding-bottom: 0px;
     margin-bottom: 0px;
     width: 100%;
+    height: 80px;
+    position: relative;
 }
 
 /* Phần logo*/
@@ -194,20 +204,25 @@ li button:hover {
     margin-top: 10px;
 }
 
-.logo>._logo {
+.logo ._logo {
     width: 70px;
     height: 70px;
     overflow: visible;
 }
 
-._logo>img {
+._logo img {
     width: 100%;
     height: 100%;
 }
 
 /*-----------------------------------*/
 /* Phần menu*/
-.main>.subnav {
+.main {
+    min-height: 80px;
+    height: 100%;
+}
+
+.main .subnav {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
@@ -217,14 +232,14 @@ li button:hover {
     padding-top: 36px;
 }
 
-.main>.subnav>li {
+.main .subnav li {
     float: left;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.main>.subnav>li>a::after {
+.main .subnav li a::after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -237,13 +252,13 @@ li button:hover {
     width: 0;
 }
 
-.main>.subnav>li>a:hover:after {
+.main .subnav li a:hover:after {
     width: 100%;
     left: 0;
     background-color: black;
 }
 
-.main>.subnav>li>a {
+.main .subnav li a {
     text-decoration: none;
     color: black;
     font-size: 14px;
@@ -253,15 +268,15 @@ li button:hover {
 }
 
 
-.main>.subnav>li:nth-of-type(1):hover>.sub_content {
+.main .subnav li:nth-of-type(1):hover .sub_content {
     display: block;
 }
 
-.main>.subnav>li:nth-child(2):hover>.sub_content {
+.main .subnav li:nth-child(2):hover .sub_content {
     display: block;
 }
 
-.main>.subnav>li:nth-child(3):hover>.sub_content {
+.main .subnav li:nth-child(3):hover .sub_content {
     display: block;
 }
 
@@ -269,7 +284,7 @@ li button:hover {
     display: none;
     position: absolute;
     left: 0;
-    top: 120px;
+    top: 80px;
     background-color: white;
     width: 100%;
     margin: 0 auto;
@@ -281,6 +296,7 @@ li button:hover {
     display: grid;
     grid-template-columns: 25% 12.5% 12.5% 12.5% 12.5% 25%;
     grid-template-rows: 90% 10%;
+    gap: 5px;
 }
 
 .content_1 {
@@ -337,7 +353,7 @@ li button:hover {
     font-size: 14px;
 }
 
-a.a_hover:hover {
+.a_hover:hover {
     text-decoration: underline;
 }
 
@@ -346,34 +362,45 @@ a.a_hover:hover {
 .search_help {
     display: grid;
     grid-template-rows: 30% 70%;
+    gap: 4px;
+    min-height: 80px;
+    height: 100%;
 }
 
 /* Phần trợ giúp*/
-.help {
+.help_mn {
     display: flex;
     justify-content: end;
     margin-right: 50px;
-    margin-top: 5px;
+    margin-top: 10px;
+    align-items: center;
 }
 
-.help>.help_ul {
+.help_mn .help_ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.help>.help_ul>li {
+.help_mn .help_ul li {
     float: left;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.help>.help_ul>li>a {
+.help_mn .help_ul li a {
     text-decoration: none;
     color: grey;
     font-size: 11px;
 }
 
-.help>.help_ul>li>i {
+.help_mn .help_ul li i {
     cursor: pointer;
     transition: transform 0.1s ease-in-out;
 }
@@ -413,25 +440,27 @@ select option {
     height: 50px;
 }
 
-.help>.help_ul>li:hover>a {
+.help_mn .help_ul li:hover a {
     text-decoration: underline;
 }
 
 /* Phần tìm kiếm*/
-.search_help>.search {
+.search_help .search {
     margin-left: 55px;
     width: 350px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    height: 100%;
+    min-height: 56px;
 }
 
-.search_help>.search>.form {
+.search_help .search .form {
     position: relative;
 }
 
-.form>input {
+.form input {
     height: 25px;
     width: 200px;
     border: none;
@@ -439,14 +468,14 @@ select option {
     padding-left: 10px;
 }
 
-.form>i {
+.form i {
     position: absolute;
     right: 7px;
-    top: 7px;
+    top: 3px;
     cursor: pointer;
 }
 
-.search_help>.search>i {
+.search_help .search i {
     font-size: 20px;
 }
 
@@ -463,6 +492,23 @@ select option {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.cart-icon {
+    position: relative;
+}
+
+.total-count {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ede734;
+}
+
 /*--------------------------------------------*/
 /*--------------------------------------------*/
 .content {
@@ -470,7 +516,7 @@ select option {
     height: 500px;
 }
 
-.content>img {
+.content img {
     width: 100%;
     height: 100%;
 }
@@ -491,12 +537,12 @@ select option {
     position: relative;
 }
 
-.post>span>a {
+.post span a {
     text-decoration: underline;
     color: white;
 }
 
-.post>i {
+.post i {
     position: absolute;
     right: 3%;
     font-size: 20px;
@@ -523,7 +569,7 @@ select option {
     width: 50px;
 }
 
-._logo_1>img {
+._logo_1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -570,11 +616,11 @@ select option {
     row-gap: 5px;
 }
 
-.FAQ_UL>li {
+.FAQ_UL li {
     text-align: center;
 }
 
-.FAQ_UL>li>a {
+.FAQ_UL li a {
     color: gainsboro;
     font-size: 13px;
 }
@@ -591,7 +637,7 @@ select option {
     transition: left .3s ease-in-out;
 }
 
-.menu_hid>.wrap {
+.menu_hid .wrap {
     width: 80%;
     margin: 20px auto;
 }
@@ -602,11 +648,11 @@ select option {
     cursor: pointer;
 }
 
-.close>p {
+.close p {
     transition: all .3s ease-in-out;
 }
 
-.close:hover>p {
+.close:hover p {
     background-color: black;
     color: white;
 }
@@ -657,7 +703,7 @@ select option {
     border-top: 1px solid black;
 }
 
-.list_supporta>.clist {
+.list_supporta .clist {
     margin-left: 0px;
     margin-top: 10px;
 }
@@ -678,16 +724,16 @@ select option {
         grid-template-columns: 15% 55% 30%;
     }
 
-    .info>.over {
+    .info .over {
         width: 90%;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         flex-direction: column;
     }
 
-    .subnav>li>a {
+    .subnav li a {
         font-size: 13px !important;
     }
 
@@ -708,7 +754,7 @@ select option {
 }
 
 @media only screen and (max-width: 1024px) {
-    .about_me>.wrap {
+    .about_me .wrap {
         display: flex;
         flex-direction: column;
     }
@@ -717,7 +763,7 @@ select option {
         height: 200px;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -726,7 +772,7 @@ select option {
         gap: 20px;
     }
 
-    .members>.over>h1 {
+    .members .over h1 {
         text-align: center;
         font-size: 23px;
     }
@@ -769,7 +815,7 @@ select option {
         align-items: center;
     }
 
-    .intro>._wrap {
+    .intro ._wrap {
         width: 80%;
         margin: 0 auto;
     }
@@ -778,15 +824,15 @@ select option {
         display: block;
     }
 
-    .intro>._wrap>div>h1 {
+    .intro ._wrap div h1 {
         font-size: 20px;
     }
 
-    .intro>._wrap>div>h3 {
+    .intro ._wrap div h3 {
         font-size: 30px;
     }
 
-    .intro>._wrap>div>p {
+    .intro ._wrap div p {
         font-size: 16px;
     }
 
@@ -795,11 +841,11 @@ select option {
         grid-template-columns: repeat(2, auto);
     }
 
-    .policy>ul>li:nth-of-type(5) {
+    .policy ul li:nth-of-type(5) {
         grid-column: span 2;
     }
 
-    .policy>ul>li {
+    .policy ul li {
         padding: 0 20px;
         border-left: none;
         margin: 5px 0;
@@ -826,12 +872,12 @@ select option {
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         min-height: 320px;
         max-height: 400px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 400px;
     }
@@ -840,7 +886,7 @@ select option {
         height: 400px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 45%;
         display: flex;
@@ -854,7 +900,7 @@ select option {
 
 @media only screen and (max-width: 740px) {
 
-    .post>span {
+    .post span {
         font-size: 14px;
     }
 
@@ -862,7 +908,7 @@ select option {
         grid-template-columns: 25% 50% 25%;
     }
 
-    .ship>.wrap {
+    .ship .wrap {
         width: 95%;
         margin: 10px auto;
     }
@@ -879,11 +925,11 @@ select option {
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         height: 320px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 300px;
     }
@@ -897,11 +943,11 @@ select option {
         width: 170px;
     }
 
-    .button::after {
+    .button-mn::after {
         width: 169px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 70%;
         display: flex;

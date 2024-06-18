@@ -477,7 +477,7 @@
                 <h3>
                     MỞ BÁN VÀO SATURDAY, OCTOBER 21ST TẠI 10:00
                 </h3>
-                <div class="button">
+                <div class="button-dk">
                     <a href="">
                         <div class="_main_button">
                             <p href="">ĐĂNG KÝ MIỄN PHÍ <i class="fa-solid fa-arrow-right"></i></p>

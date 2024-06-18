@@ -20,6 +20,8 @@ class CheckCookie
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // dd(Cookie::get('remember_me'));
+
         if ($token = Cookie::get('remember_me')) {
             // dd($token);
             $user = User::where('remember_token', $token)->first();

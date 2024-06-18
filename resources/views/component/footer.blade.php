@@ -17,7 +17,7 @@
         <div class="members">
             <div class="over">
                 <h1>TRỞ THÀNH HỘI VIÊN & HƯỞNG ƯU ĐÃI 15%</h1>
-                <div class="button">
+                <div class="button-dk">
                     <a href="{{ route('product.show') }}">
                         <div class="_main_button">
                             <p>ĐĂNG KÝ MIỄN PHÍ <i class="fa-solid fa-arrow-right"></i></p>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="opinion">
-            <div class="wrap">
+            <div class="wrap" style="padding: 0 50px">
                 <h1 style="font-size: 20px;">Ý KIẾN CỦA BẠN</h1>
                 <p>
                     Chúng tôi cố gắng phục vụ bạn tốt hơn và đánh giá cao phản hồi của bạn
@@ -103,7 +103,7 @@
                     <a href="" class="a_hover">khuyến mãi</a>
                     <a href="" class="a_hover">Sơ đồ trang web</a>
                 </div>
-                <div class="properties">
+                <div class="properties flex flex-col gap-3">
                     <h1>THEO DÕI CHÚNG TÔI</h1>
                     <a href="" class="a_hover"><i class="fa-brands fa-facebook"></i></a>
                     <a href="" class="a_hover"><i class="fa-brands fa-instagram"></i></a>

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Models\Product;
+use App\Models\Detail;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\StoreDetailRequest;
+use App\Http\Requests\UpdateDetailRequest;
 
-class ProductController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreDetailRequest $request)
     {
         //
     }
@@ -36,7 +36,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Detail $detail)
     {
         //
     }
@@ -44,7 +44,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Detail $detail)
     {
         //
     }
@@ -52,7 +52,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateDetailRequest $request, Detail $detail)
     {
         //
     }
@@ -60,12 +60,8 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Detail $detail)
     {
         //
-    }
-
-    public function viewController() {
-        return view(view: 'pages.product');
     }
 }
