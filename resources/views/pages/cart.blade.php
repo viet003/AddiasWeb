@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,55 +21,59 @@
             <div class="col-md-10 col-11 mx-auto" style="">
                 <div class="row mt-5 mb-5 gx-3">
                     <!-- left side div -->
+                    @if (count($items) != 0)
                     <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
                         <h2 class="py-4 px-5 font-weight-bold bg-tranparent">Giỏ hàng</h2>
                         @foreach ($items as $item)
-                            <div class="card p-4">
-                                <div class="row">
-                                    <!-- cart images div -->
-                                    <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img">
-                                        <img src="{{ $item->product->images->first()->path }}" class="img-fluid" alt="cart img">
-                                    </div>
-                    
-                                    <!-- cart product details -->
-                                    <div class="col-md-7 col-11 mx-auto px-4 mt-2">
-                                        <div class="row">
-                                            <!-- product name  -->
-                                            <div class="col-6 card-title">
-                                                <h1 class="mb-4 product_name">{{ $item->product->name_product }}</h1>
-                                                <p class="mb-2">GIỚI TÍNH: {{ $item->product->gender }}</p>
-                                                <p class="mb-2">COLOR: {{ $item->color }}</p>
-                                                <p class="mb-3">SIZE: {{ $item->size }}</p>
-                                            </div>
-                                            <!-- quantity inc dec -->
-                                            <div class="col-6">
-                                                <ul class="pagination justify-content-end set_quantity">
-                                                    <li class="page-item">
-                                                        <form action="{{ url('/cart/' . $item->id) }}" method="GET">
-                                                            <button type="submit" class="page-link" style="width: 130px">
-                                                                Thanh toán
-                                                            </button>
-                                                        </form>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                        <div class="card p-4">
+                            <div class="row">
+                                <!-- cart images div -->
+                                <div
+                                    class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img">
+                                    <img src="{{ $item->product->images->first()->path }}" class="img-fluid"
+                                        alt="cart img">
+                                </div>
+
+                                <!-- cart product details -->
+                                <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+                                    <div class="row">
+                                        <!-- product name  -->
+                                        <div class="col-6 card-title">
+                                            <h1 class="mb-4 product_name">{{ $item->product->name_product }}</h1>
+                                            <p class="mb-2">GIỚI TÍNH: {{ $item->product->gender }}</p>
+                                            <p class="mb-2">COLOR: {{ $item->color }}</p>
+                                            <p class="mb-3">SIZE: {{ $item->size }}</p>
                                         </div>
-                                        <!-- //remover move and price -->
-                                        <div class="row">
-                                            <div class="col-8 d-flex justify-content-between remove_wish">
-                                                <p style="cursor: pointer" class="remove-item">
-                                                    <i class="fas fa-trash-alt" data-item-id="{{ $item->id }}"></i> XÓA SẢN PHẨM
-                                                </p>
-                                                <p><i class="fas fa-heart"></i> THÊM VÀO FAVORITE</p>
-                                            </div>
+                                        <!-- quantity inc dec -->
+                                        <div class="col-6">
+                                            <ul class="pagination justify-content-end set_quantity">
+                                                <li class="page-item">
+                                                    <form action="{{ url('/cart/' . $item->id) }}" method="GET">
+                                                        <button type="submit" class="page-link" style="width: 130px">
+                                                            Thanh toán
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- //remover move and price -->
+                                    <div class="row">
+                                        <div class="col-8 d-flex justify-content-between remove_wish">
+                                            <p style="cursor: pointer" class="remove-item">
+                                                <i class="fas fa-trash-alt" data-item-id="{{ $item->id }}"></i> XÓA SẢN
+                                                PHẨM
+                                            </p>
+                                            <p><i class="fas fa-heart"></i> THÊM VÀO FAVORITE</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr />
+                        </div>
+                        <hr />
                         @endforeach
                     </div>
-                    
+
                     <script>
                         $(document).ready(function() {
                             var authToken = @json(Auth::check() ? Auth::user()->accesToken : '');
@@ -99,7 +104,8 @@
                                 });
                             });
                         });
-                    </script>                    
+                    </script>
+                    @endif
                 </div>
             </div>
         </div>
@@ -118,7 +124,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('frontend/js/cart.js') }}"/>
+    <script src="{{ asset('frontend/js/cart.js') }}" />
 
 </body>
 
