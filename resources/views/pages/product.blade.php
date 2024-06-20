@@ -36,41 +36,21 @@
                     </li>
                 </ul>
                 <div class="im">
-                    <div class="cover">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                            alt="">
-                    </div>
-                    <div class="cover">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                            alt="">
-                    </div>
-                    <div class="cover">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                            alt="">
-                    </div>
-                    <div class="cover">
-                        <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                            alt="">
-                    </div>
+                    @foreach ($images->take(4) as $image)
+                        <div class="cover">
+                            <img src="{{ $image->path }}"
+                                alt="">
+                        </div>
+                    @endforeach
                 </div>
                 <div class="toggle">
                     <div class="im">
-                        <div class="cover">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                                alt="">
-                        </div>
-                        <div class="cover">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                                alt="">
-                        </div>
-                        <div class="cover">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                                alt="">
-                        </div>
-                        <div class="cover">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
-                                alt="">
-                        </div>
+                        @foreach ($images->slice(3) as $image)
+                            <div class="cover">
+                                <img src="{{ $image->path }}"
+                                    alt="">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="show_more">
@@ -105,7 +85,7 @@
                             </span>
                         </div>
                         <div class="img_Ds">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2e86d2d18f224468bf21a5ae627d144c_9366/Giay_Golf_BAPE_x_adidas_Stan_Smith_trang_IG5916_01_standard.jpg"
+                            <img src="{{ $images->first()->path }}"
                                 alt="">
                         </div>
                     </div>
@@ -460,8 +440,8 @@
         <div class="right_content">
             <div>
                 <p>Originals</p>
-                <h1>GIÀY GOLF BAPE X ADIDAS STAN SMITH</h1>
-                <p>4.200.000₫</p>
+                <h1>{{ $product->name_product }}</h1>
+                <p>{{ $product->price}}₫</p>
             </div>
             <div>
                 <p style="font-weight: 300;">
@@ -470,24 +450,37 @@
                     khuyến mãi nào. Giới hạn số lượng 1 sản phẩm trên mỗi đơn hàng.
                 </p>
             </div>
-            <div>
+            <div class="product-color">
                 <p>Cloud White / Cloud White / Green</p>
             </div>
-            <div>
+            <div class="product-size" id="product-size">
+                <button class="size-option" value="36">Size 36</button>
+                <button class="size-option" value="37">Size 37</button>
+                <button class="size-option" value="38">Size 38</button> 
+                <button class="size-option" value="39">Size 39</button>
+                <button class="size-option" value="40">Size 40</button>
+                <button class="size-option" value="41">Size 41</button>
+                <button class="size-option" value="42">Size 42</button>
+                <button class="size-option" value="43">Size 43</button>
+                <button class="size-option" value="44">Size 44</button>
+                <button class="size-option" value="45">Size 45</button>
+            </div>
+            <div class="add-to-cart">
                 <h3>
-                    MỞ BÁN VÀO SATURDAY, OCTOBER 21ST TẠI 10:00
+                    ĐÃ MỞ BÁN TRÊN TOÀN QUỐC, OCTOBER 21ST TẠI 10:00
                 </h3>
                 <div class="button-dk">
                     <a href="">
                         <div class="_main_button">
-                            <p href="">ĐĂNG KÝ MIỄN PHÍ <i class="fa-solid fa-arrow-right"></i></p>
+                            <p href="">THÊM VÀO GIỎ HÀNG <i class="fa-solid fa-arrow-right"></i></p>
                         </div>
                     </a>
                 </div>
             </div>
-            <div>
+
+            <div  class="add-to-cart">
                 <span>
-                    <i class="fa-solid fa-truck-fast"></i> <a href=""> FREE SHIPPING FOR ADICLUB MEMBERS</a>
+                    <i class="fa-solid fa-truck-fast"></i> <a href=""> FREE SHIPPING CHO THÀNH VIÊN ADCLUB</a>
                 </span>
                 <span>
                     <i class="fa-solid fa-right-left"></i> <a href=""></i> HOÀN TRẢ DỄ DÀNG</a>

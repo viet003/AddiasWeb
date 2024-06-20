@@ -9,6 +9,14 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name_product',
+        'price',
+        'quantity',
+        'gender',
+        'auto_imei',
+    ];
+
     public function carts()
     {
         return $this->hasMany(Cart::class);
@@ -17,5 +25,9 @@ class Product extends Model
     public function details()
     {
         return $this->hasMany(Detail::class);
+    }
+
+    public function images() {
+        return $this->hasMany(Image::class);
     }
 }

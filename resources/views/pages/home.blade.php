@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('frontend/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <title>Document</title>
+    <title>V3Shop</title>
 </head>
 <body>
     {{-- header --}}
@@ -51,159 +51,33 @@
                 <p>Members's Exculusive</p>
             </div>
             <div class="image-slider">
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7477b277ec6647919fa241a78609964a_9366/Giay_Alphaboost_V1_mau_xanh_la_IG3129_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Chạy Giày Adizero Adios 8</p>
-                            <p>Nam Chạy</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
+                @foreach ($products as $product)
+                    <a href="{{ url('/product/' . $product->id) }}">
+                        <div class="image-item">
+                            @if ($product->images->first())
+                                <div class="image">
+                                    <img src="{{ $product->images->first()->path }}"
+                                        alt="" />
+                                    <p>{{ $product->price }}<sup>đ</sup></p>
+                                </div>
+                            @else
+                                <div class="image">
+                                    <img src=""
+                                        alt="nope" />
+                                    <p>{{ $product->price }}<sup>đ</sup></p>
+                                </div>
+                            @endif
+                            <div class="cost">
+                                <p>{{ $product->name_product }}</p>
+                                <p>{{ $product->gender }} Chạy</p>
+                                <p>New</p>
+                            </div>
+                            <div class="_border">
 
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eb1e2d9fd65242d588bddc35bd66e61e_9366/Giay_X_PLR_Boost_Mau_xanh_da_troi_ID9580_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nữ Chạy Giày Adizero Adios 8</p>
-                            <p>Nữ Chạy</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3c43063276d94cbbb23a74dcd292bd3c_9366/Giay_X_PLR_Boost_mau_xanh_la_ID9579_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Sportswear Giày Alphaboost V1</p>
-                            <p>Nam Sportswear</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/91fa955f44f54f3bb9f3634bca6ecb5f_9366/GAZELLE_DJo_IE8503_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Sportswear Giày X_PLR Boost</p>
-                            <p>Nam Sportswear</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/af6af2de73824e3bbbe435933a357fde_9366/Giay_Chay_Bo_Switch_FWD_mau_xanh_la_IG0676_HM1.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Sportswear Giày X_PLR Boost</p>
-                            <p>Nam Sportswear</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/520fd9246c6d439eb1d5a9f0842e4976_9366/Giay_X_PLR_Boost_Hong_IF2954_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Originals GAZELLE</p>
-                            <p>Nam Originals</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/841d520758dc46879a708b4e316e6691_9366/Giay_X_PLR_Boost_Xam_IF2953_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nữ Sportswear Giày X_PLR Boost</p>
-                            <p>NNữ Sportswear</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e711a37af3424846b5470558bcd2bcb7_9366/Giay_Ultraboost_Light_Xam_IE1759_01_standard.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nữ Sportswear Giày X_PLR Boost</p>
-                            <p>Nữ Sportswear</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
-                <a href="Infoproduct/Info.html">
-                    <div class="image-item">
-                        <div class="image">
-                            <img src="https://assets.adidas.com/images/w_280,h_280,f_auto,q_auto:sensitive/316297fac2c54c689ec192e376e79540_9366/gi%C3%A0y-ultraboost-light.jpg"
-                                alt="" />
-                            <p>3.600.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cost">
-                            <p>Nam Chạy Giày Ultraboost Light</p>
-                            <p>Nam Chạy</p>
-                            <p>New</p>
-                        </div>
-                        <div class="_border">
-
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -244,214 +118,64 @@
             <div class="more">
                 <div class="s">
                     <div class="image-slider">
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fc2b4155ecf748279e27f718deefea68_9366/Giay_Adizero_Adios_8_Ngoc_lam_HP9721_HM1.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nam Chạy Giày Adizero Adios 8</p>
-                                    <p>Nam Chạy</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
+                        @foreach ($new_products as $item)
+                            <a href="{{ url('/product/' . $item->id) }}">
+                                <div class="image-item">
+                                    @if ($item->images->first())
+                                        <div class="image">
+                                            <img src="{{ $item->images->first()->path }}"
+                                                alt="" />
+                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                                        </div>
+                                    @else
+                                        <div class="image">
+                                            <img src=""
+                                                alt="nope" />
+                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                                        </div>
+                                    @endif
+                                    <div class="cost">
+                                        <p>{{ $item->name_product }}</p>
+                                        <p>{{ $item->gender }} Chạy</p>
+                                        <p>New</p>
+                                    </div>
+                                    <div class="_border">
 
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fc2b4155ecf748279e27f718deefea68_9366/Giay_Adizero_Adios_8_Ngoc_lam_HP9721_HM1.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Chạy Giày Adizero Adios 8</p>
-                                    <p>Nữ Chạy</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a0df0c609832443aa028afcd01338083_9366/Ao_Polo_Originals_trang_IJ5224_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Originals Áo Polo Originals</p>
-                                    <p>Nữ Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fc2b4155ecf748279e27f718deefea68_9366/Giay_Adizero_Adios_8_Ngoc_lam_HP9721_HM1.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nam Chạy Giày Adizero Takumi Sen 9</p>
-                                    <p>Nam Chạy</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/dfe9911a1e324163948aaf800189f1e3_9366/Quan_Tap_Khoi_DJong_Bong_Ro_mau_xanh_la_IK8559_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nam Originals Quần Tập Khởi Động Bóng Rổ</p>
-                                    <p>Nam Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/61f943bfa0cc4a098657afd401803566_9366/Quan_Tap_Khoi_DJong_Tricot_Originals_nau_IJ5227_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Originals Quần Tập Khởi Động Tricot Originals</p>
-                                    <p>Nữ Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5cd3a4ca8a2b41d3a1d3afd401803f89_9366/OG_WARM_UP_JKT_nau_IJ5229_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Originals OG WARM UP JKT</p>
-                                    <p>Nữ Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/375ca149af76478bbfc3afc901138541_9366/Ao_Tank_Top_Hoa_Tiet_Yoga_Studio_DJen_IL3951_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Tập Luyện Áo Tank Top Họa Tiết Yoga Studio</p>
-                                    <p>Nữ Tập Luyện</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="s">
                     <div class="classify">
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item" id="convert_img">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fc2b4155ecf748279e27f718deefea68_9366/Giay_Adizero_Adios_8_Ngoc_lam_HP9721_HM1.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nam Chạy Giày Adizero Takumi Sen 9</p>
-                                    <p>Nam Chạy</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
+                        @foreach ($new_products as $item)
+                            <a href="{{ url('/product/' . $item->id) }}">
+                                <div class="image-item">
+                                    @if ($item->images->first())
+                                        <div class="image">
+                                            <img src="{{ $item->images->first()->path }}"
+                                                alt="" />
+                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                                        </div>
+                                    @else
+                                        <div class="image">
+                                            <img src=""
+                                                alt="nope" />
+                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                                        </div>
+                                    @endif
+                                    <div class="cost">
+                                        <p>{{ $item->name_product }}</p>
+                                        <p>{{ $item->gender }} Chạy</p>
+                                        <p>New</p>
+                                    </div>
+                                    <div class="_border">
 
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/dfe9911a1e324163948aaf800189f1e3_9366/Quan_Tap_Khoi_DJong_Bong_Ro_mau_xanh_la_IK8559_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nam Originals Quần Tập Khởi Động Bóng Rổ</p>
-                                    <p>Nam Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/61f943bfa0cc4a098657afd401803566_9366/Quan_Tap_Khoi_DJong_Tricot_Originals_nau_IJ5227_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Originals Quần Tập Khởi Động Tricot Originals</p>
-                                    <p>Nữ Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
-                        <a href="Infoproduct/Info.html">
-                            <div class="image-item">
-                                <div class="image">
-                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5cd3a4ca8a2b41d3a1d3afd401803f89_9366/OG_WARM_UP_JKT_nau_IJ5229_01_laydown.jpg"
-                                        alt="" />
-                                    <p>3.600.000<sup>đ</sup></p>
-                                </div>
-                                <div class="cost">
-                                    <p>Nữ Originals OG WARM UP JKT</p>
-                                    <p>Nữ Originals</p>
-                                    <p>New</p>
-                                </div>
-                                <div class="_border">
-
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

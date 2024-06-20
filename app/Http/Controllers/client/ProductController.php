@@ -36,10 +36,24 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
-    }
+        $product = Product::findOrFail($id);
+
+        $product->load('images');
+
+        if (!$product) {
+            abort(404, 'Product not found');
+        }
+
+        $images = $product->images;
+
+        // dd($product->name_product);
+
+        return view('pages.product', compact('product', 'images'));
+        }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -65,7 +79,8 @@ class ProductController extends Controller
         //
     }
 
-    public function viewController() {
+    public function viewController()
+    {
         return view(view: 'pages.product');
     }
 }

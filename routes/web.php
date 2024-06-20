@@ -13,7 +13,7 @@ use App\Http\Middleware\Authenticate;
 
 // Đăng ký các route
 Route::get('/', [HomeController::class, 'viewController'])->name('shop');
-Route::get('/product', [ProductController::class, 'viewController'])->name('product.show');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 
@@ -31,4 +31,5 @@ Route::middleware([Authenticate::class, ])->group(function () {
     Route::get('/setting', [UserController::class, 'getFormSetting'])->name('user.show');
     Route::get('/cart', [CartController::class, 'viewController'])->name('cart.show');
     Route::post('/changepass', [AuthController::class, 'changepass'])->name('auth.changepass');
+    Route::post('/customer/{id}', [UserController::class, 'update'])->name('customer.update');
 });

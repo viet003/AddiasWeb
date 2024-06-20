@@ -4,6 +4,9 @@ document.body.onload = function () {
     var total_cart_amt = document.getElementById('total_cart_amt');
     var discountCode = document.getElementById('discount_code1');
 
+    setTimeout(()=>{
+        
+    })
     
     const decreaseNumber = (incdec, itemprice) => {
         var itemval = document.getElementById(incdec);

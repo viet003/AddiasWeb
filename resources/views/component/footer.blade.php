@@ -18,7 +18,7 @@
             <div class="over">
                 <h1>TRỞ THÀNH HỘI VIÊN & HƯỞNG ƯU ĐÃI 15%</h1>
                 <div class="button-dk">
-                    <a href="{{ route('product.show') }}">
+                    <a href="{{ route('register') }}">
                         <div class="_main_button">
                             <p>ĐĂNG KÝ MIỄN PHÍ <i class="fa-solid fa-arrow-right"></i></p>
                         </div>

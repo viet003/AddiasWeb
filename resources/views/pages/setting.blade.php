@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Setting</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/setting.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -84,28 +86,46 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Nhập lại mật khẩu mới</label>
-                                        <input type="password" name="new_password_confirmation" class="form-control" required>
+                                        <input type="password" name="new_password_confirmation" class="form-control"
+                                            required>
                                     </div>
                                     <div class="text-right mt-3">
                                         <button type="submit" class="btn btn-primary">Save changes</button>&nbsp;
                                     </div>
-                                </form>                                
+                                </form>
                             </div>
                         </div>
                         {{-- Địa chỉ nhận hàng --}}
                         <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
-                                <form action="" method="POST">
+                                <form action="{{ route("customer.update", Auth::user()->customer->id) }}" method="POST" id="updateCustomerForm">
+                                    @csrf
                                     <div class="form-group">
-                                        <label class="form-label">Bio</label>
-                                        <textarea class="form-control"
-                                            rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                        <label for="first_name" class="form-label">Họ và đệm</label>
+                                        <input name="first_name" id="first_name" type="text" class="form-control"
+                                            value="{{ optional(Auth::user()->customer)->first_name }}">
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">Birthday</label>
-                                        <input type="text" class="form-control" value="May 3, 1995">
+                                        <label for="last_name" class="form-label">Tên</label>
+                                        <input name="last_name" id="last_name" type="text" class="form-control"
+                                            value="{{ optional(Auth::user()->customer)->last_name }}">
                                     </div>
                                     <div class="form-group">
+                                        <label for="phone" class="form-label">Số diện thoại</label>
+                                        <input name="phone_number" id="phone_number" type="text" class="form-control"
+                                            value="{{ optional(Auth::user()->customer)->phone_number }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address" class="form-label">Địa chỉ</label>
+                                        <input name="address" id="address" type="text" class="form-control"
+                                            value="{{ optional(Auth::user()->customer)->address }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="form-label">Thành phố</label>
+                                        <input name="city" id="city" type="text" class="form-control"
+                                            value="{{ optional(Auth::user()->customer)->city }}">
+                                    </div>
+                                    {{-- <div class="form-group">
                                         <label class="form-label">Country</label>
                                         <select class="custom-select">
                                             <option>USA</option>
@@ -114,7 +134,7 @@
                                             <option>Germany</option>
                                             <option>France</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="text-right mt-3">
                                         <button type="submit" class="btn btn-primary">Save changes</button>&nbsp;
                                     </div>
@@ -122,17 +142,18 @@
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body pb-2">
-                                <h6 class="mb-4">Contacts</h6>
+                                <h6 class="mb-4">Liên hệ với chúng tôi</h6>
                                 <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+0 (123) 456 7891">
+                                    <label class="form-label">Số điện thoại</label>
+                                    <input type="text" class="form-control" value="+89 0987654321">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Website</label>
-                                    <input type="text" class="form-control" value>
+                                    <input type="text" class="form-control" value="V3Shop.vn">
                                 </div>
                             </div>
                         </div>
+                        
                         {{-- Thông báo --}}
                         <div class="tab-pane fade" id="account-notifications">
                             <div class="card-body pb-2">
@@ -211,8 +232,7 @@
     </div>
 
 
-    <div class="" id="alert"
-        style="position: absolute; top: 300px; right: 20px; text-align:start; font-size: 13px">
+    <div class="" id="alert" style="position: absolute; top: 300px; right: 20px; text-align:start; font-size: 13px">
         <ul style="list-style-type: none; padding: 0;">
             @if (session('success'))
                 <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">
@@ -220,11 +240,11 @@
                 </li>
                 <script>
                     setTimeout(function () {
-                        var alertDiv = document.getElementById('alert');
-                        if (alertDiv) {
-                            alertDiv.style.display = 'none';
-                        }
-                    }, 3000); // 3s
+                            var alertDiv = document.getElementById('alert');
+                            if (alertDiv) {
+                                alertDiv.style.display = 'none';
+                            }
+                        }, 3000); // 3s
                 </script>
             @endif
 
@@ -235,28 +255,26 @@
                     </li>
                     <script>
                         setTimeout(function () {
-                            var alertDiv = document.getElementById('alert');
-                            if (alertDiv) {
-                                alertDiv.style.display = 'none';
-                            }
-                        }, 3000); // 3s
+                                    var alertDiv = document.getElementById('alert');
+                                    if (alertDiv) {
+                                        alertDiv.style.display = 'none';
+                                    }
+                                }, 3000); // 3s
                     </script>
                 @endforeach
             @endif
         </ul>
     </div>
 
-    
+
 
     @include('component.footer')
-
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    </script>
 </body>
 
 </html>

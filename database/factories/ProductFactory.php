@@ -23,9 +23,11 @@ class ProductFactory extends Factory
             'name_product' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'quantity' => $this->faker->numberBetween(1, 100),
-            'image' => $this->faker->imageUrl(640, 480, 'products', true),
-            'date_added' => $this->faker->dateTimeThisYear,
+            'gender' => $this->faker->randomElement(['Nam', 'Nữ']),
+            'date_added' => $this->faker->dateTime,
             'auto_imei' => $this->faker->uuid,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
