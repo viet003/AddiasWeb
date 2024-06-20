@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\V1\CustomerController;
-use App\Models\Customer;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Client\OrderController;
+use App\Http\Middleware\AuthApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-// Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() {
-//     Route::post('customers/{id}', [CustomerController::class, 'update'])->name('api.customer');
-// });
+
+Route::middleware([AuthApi::class])->group(function () {
+    Route::post('addtocart', [CartController::class, 'addToCart']);
+    Route::post('deletefromcart', [CartController::class, 'deleteFromCart']);
+    Route::post('checkout', [OrderController::class, 'checkout']);
+});
+

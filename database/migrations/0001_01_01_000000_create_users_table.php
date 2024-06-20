@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->useCurrent();
             $table->tinyInteger('role');
             $table->rememberToken();
+            $table->string('accesToken', 200);
             $table->timestamps();
         });
 

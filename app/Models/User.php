@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_name', 'email', 'password', 'role',
+        'id', 'user_name', 'email', 'password', 'role', 'accessToken'
     ];
 
     /**
@@ -55,4 +55,5 @@ class User extends Authenticatable
     {
         return $this->hasOne(Customer::class, 'user_id', 'id');
     }    
+
 }

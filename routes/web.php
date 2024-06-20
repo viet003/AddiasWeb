@@ -1,10 +1,13 @@
 <?php
 // Controller
+
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\UserController;
 // Middleware
 use App\Http\Middleware\CheckCookie;
@@ -15,6 +18,7 @@ use App\Http\Middleware\Authenticate;
 Route::get('/', [HomeController::class, 'viewController'])->name('shop');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 
 Route::middleware([CheckLogin::class])->group(function () {
@@ -29,7 +33,8 @@ Route::middleware([CheckLogin::class])->group(function () {
 
 Route::middleware([Authenticate::class, ])->group(function () {
     Route::get('/setting', [UserController::class, 'getFormSetting'])->name('user.show');
-    Route::get('/cart', [CartController::class, 'viewController'])->name('cart.show');
+    Route::get('/cart', [CartController::class, 'getCart'])->name('cart.show');
+    Route::get('/cart/{id}', [OrderController::class, 'getOrder'])->name('order.show');
     Route::post('/changepass', [AuthController::class, 'changepass'])->name('auth.changepass');
     Route::post('/customer/{id}', [UserController::class, 'update'])->name('customer.update');
 });

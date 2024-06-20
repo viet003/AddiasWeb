@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'password' => Hash::make('123456'), 
             'email_verified_at' => now(),
             'role' => 0,
+            'accesToken' => Str::random(30),
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),

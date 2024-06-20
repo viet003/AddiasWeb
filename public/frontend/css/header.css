@@ -31,6 +31,15 @@ a {
     margin: 0;
 }
 
+.search-button {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
 li button:hover {
     text-decoration: underline;
 }
@@ -468,7 +477,7 @@ select option {
     padding-left: 10px;
 }
 
-.form i {
+.form button {
     position: absolute;
     right: 7px;
     top: 3px;

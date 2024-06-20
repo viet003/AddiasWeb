@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>ALADIN Stores</title>
     <link rel="icon" href="Infoproduct/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('frontend/css/product.css')}}">
@@ -12,6 +13,10 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="body">
@@ -45,7 +50,7 @@
                 </div>
                 <div class="toggle">
                     <div class="im">
-                        @foreach ($images->slice(3) as $image)
+                        @foreach ($images->slice(4) as $image)
                             <div class="cover">
                                 <img src="{{ $image->path }}"
                                     alt="">
@@ -451,7 +456,9 @@
                 </p>
             </div>
             <div class="product-color">
-                <p>Cloud White / Cloud White / Green</p>
+                <button class="color-option" value="white">Cloud White</button>
+                <button class="color-option" value="black">Cloud Black</button>
+                <button class="color-option" value="green">Green</button>
             </div>
             <div class="product-size" id="product-size">
                 <button class="size-option" value="36">Size 36</button>
@@ -470,11 +477,11 @@
                     ĐÃ MỞ BÁN TRÊN TOÀN QUỐC, OCTOBER 21ST TẠI 10:00
                 </h3>
                 <div class="button-dk">
-                    <a href="">
-                        <div class="_main_button">
+                    <div>
+                        <div class="_main_button" id="submit-button">
                             <p href="">THÊM VÀO GIỎ HÀNG <i class="fa-solid fa-arrow-right"></i></p>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
 
@@ -492,10 +499,61 @@
     {{-- footer --}}
     @include('component.footer')
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let selectedColor = '';
+            let selectedSize = '';
+            var authToken = @json(Auth::check() ? Auth::user()->accesToken : '');
+            var user_id = @json(Auth::check() ? Auth::user()->id : '');
+
+            $('.color-option').on('click', function() {
+                selectedColor = $(this).val();
+                $('.color-option').removeClass('active-button-size-color');
+                $(this).addClass('active-button-size-color');
+            });
+    
+            $('.size-option').on('click', function() {
+                selectedSize = $(this).val();
+                $('.size-option').removeClass('active-button-size-color');
+                $(this).addClass('active-button-size-color');
+            });
+    
+            $('#submit-button').on('click', function() {
+                const data = {
+                    user_id : user_id,
+                    product_id: "{{ $product->id }}",
+                    color: selectedColor,
+                    size: selectedSize,
+                };
+    
+                $.ajax({
+                    url: '/api/addtocart',
+                    type: 'POST',
+                    headers: authToken ? { 'Authorization': 'Bearer ' + authToken } : {},
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function(response) {
+                        if(response.status === 200) {
+                            console.log('Success:', response);
+                            alert('Thêm sản phẩm thành công!');
+                            window.location.href = "{{ route('cart.show') }}";
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status === 401) { 
+                            alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.');
+                            window.location.href = "{{ route('login') }}"; 
+                        } else {
+                            alert('Vui lòng lựa chọn đầy đủ thông tin!');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
     <script src="{{ asset('frontend/js/product.js') }}"></script>
+
 </body>
 
 </html>

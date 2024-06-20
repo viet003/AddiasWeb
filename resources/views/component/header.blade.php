@@ -378,10 +378,9 @@
                     </ul>
                 </div>
                 <div class="search">
-                    <form action="" method="GET" class="form">
-                        
-                        <input type="text" name="search" id="search" placeholder="Tìm kiếm">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <form action="{{ route('search') }}" method="GET" class="form">
+                        <input type="text" name="query" id="search" placeholder="Tìm kiếm">
+                        <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                     @if(Auth::check())
                         <a class="log_user" href="{{ route('user.show') }}">{{ substr(Auth::user()->user_name, 0, 1) }}</a>

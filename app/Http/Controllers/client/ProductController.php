@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Cart;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -28,9 +30,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        //
+        
     }
 
     /**

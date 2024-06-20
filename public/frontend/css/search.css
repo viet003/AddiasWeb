@@ -1,0 +1,120 @@
+/* Định dạng thanh cuộn khi di chuột qua .bar */
+.bar:hover::-webkit-scrollbar-thumb {
+    display: block;
+    /* Hiển thị */
+}
+
+/* Định dạng chung cho thanh cuộn */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    /* Không có định dạng cụ thể trong đoạn mã gốc */
+}
+
+/* Định dạng ngón tay cái (thumb) của thanh cuộn */
+::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    /* Bo tròn hoàn toàn */
+    background-color: gray;
+    /* Màu nền xám (bg-gray-300) */
+    height: 30px;
+    /* Chiều cao của ngón tay cái */
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+}
+
+.wrap {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.main-content {
+    width: 100;
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+    position: relative;
+}
+
+._border {
+    display: none;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.image-item {
+    height: 400px;
+    box-sizing: border-box !important;
+    overflow: hidden;
+    position: relative;
+}
+
+.image {
+    height: 300px;
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.image p {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    background-color: white;
+    padding: 0 15px;
+    transition: all .1s linear;
+}
+
+.item-image-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.item-image-card:hover .image p {
+    bottom: 5px;
+}
+
+.item-image-card:hover ._border {
+    display: block;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.image-title {
+    font-size: 20px;
+    color: #8e8fb5;
+}
+
+.cost {
+    line-height: 1.5;
+    padding-left: 5px;
+}
+
+.cost p {
+    font-size: 14px;
+}
+
+.cost p:nth-of-type(2) {
+    color: #8e8fb5;
+}

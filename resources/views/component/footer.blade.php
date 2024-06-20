@@ -103,7 +103,7 @@
                     <a href="" class="a_hover">khuyến mãi</a>
                     <a href="" class="a_hover">Sơ đồ trang web</a>
                 </div>
-                <div class="properties flex flex-col gap-3">
+                <div class="properties">
                     <h1>THEO DÕI CHÚNG TÔI</h1>
                     <a href="" class="a_hover"><i class="fa-brands fa-facebook"></i></a>
                     <a href="" class="a_hover"><i class="fa-brands fa-instagram"></i></a>

@@ -344,6 +344,33 @@
 }
 
 
+.product-color {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.product-color .color-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    outline: none;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.product-color .color-option p {
+    font-size: 20px;
+}
+
+.product-color .color-option:hover {
+    background-color: #282c31;
+    color: #fff;
+}
+
 /* class for responsive*/
 .navbar_sub {
     display: none;
@@ -352,6 +379,7 @@
     margin-bottom: 0px;
     padding: 0 10px;
 }
+
 
 .logo_1 {
     display: flex;
@@ -461,9 +489,15 @@
     border: 1px solid black;
     background-color: transparent;
 }
+
 .product-size button:hover {
     background-color: black;
     color: white;
+}
+
+.active-button-size-color {
+    background-color:black !important;
+    color: #fff;
 }
 
 .close p {
@@ -474,6 +508,7 @@
     background-color: black;
     color: white;
 }
+
 
 .list {
     padding-top: 20px;

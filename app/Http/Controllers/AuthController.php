@@ -72,6 +72,7 @@ class AuthController extends Controller
             'email_verified_at' => now(),
             'role' => $request->has('role') ? 1 : 0,
             'remember_token' => Str::random(10),
+            'accesToken'=> Str::random(30),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

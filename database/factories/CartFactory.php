@@ -22,6 +22,8 @@ class CartFactory extends Factory
         return [
             'user_id' => \App\Models\User::factory(),
             'product_id' => \App\Models\Product::factory(),
+            'size' => $this->faker->randomElement(['36', '37', '38', '39']),
+            'color' => $this->faker->safeColorName(),
         ];
     }
 }

@@ -38,7 +38,7 @@
     height: 500px;
 }
 
-.content>img {
+.content img {
     width: 100%;
     height: 100%;
 }
@@ -59,12 +59,12 @@
     position: relative;
 }
 
-.post>span>a {
+.post span a {
     text-decoration: underline;
     color: white;
 }
 
-.post>i {
+.post i {
     position: absolute;
     right: 3%;
     font-size: 20px;
@@ -87,7 +87,7 @@
     width: 100%;
 }
 
-.fill_picture>img {
+.fill_picture img {
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -116,12 +116,12 @@
     align-items: center;
 }
 
-.intro>._wrap {
+.intro ._wrap {
     width: 80%;
     margin: 0 auto;
 }
 
-._wrap>div {
+._wrap div {
     z-index: 10;
     width: 35%;
     display: flex;
@@ -131,12 +131,12 @@
     gap: 30px;
 }
 
-._wrap>div>h1 {
+._wrap div h1 {
     color: black;
     font-size: 40px;
 }
 
-._wrap>div>p {
+._wrap div p {
     font-size: 18px;
     color: black;
 }
@@ -161,11 +161,11 @@
     padding-left: 5px;
 }
 
-.cost>p {
+.cost p {
     font-size: 14px;
 }
 
-.cost>p:nth-of-type(2) {
+.cost p:nth-of-type(2) {
     color: #8e8fb5;
 }
 
@@ -206,11 +206,11 @@
     transition: all .1s linear;
 }
 
-.image-item:hover>.image>p {
+.image-item:hover .image p {
     bottom: 5px;
 }
 
-.image-item:hover>._border {
+.image-item:hover ._border {
     display: block;
 }
 
@@ -314,7 +314,7 @@
     margin-top: 50px;
 }
 
-.fill_picture_1>img {
+.fill_picture_1 img {
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -356,7 +356,7 @@
 
 /* Sản phẩm & support*/
 
-.Intro_more>.wrap {
+.Intro_more .wrap {
     width: 90%;
 }
 
@@ -367,15 +367,15 @@
     margin-top: 5px;
 }
 
-.ban>h1 {
+.ban h1 {
     font-size: medium;
 }
 
-.ban>p {
+.ban p {
     font-size: small;
 }
 
-.ban>a {
+.ban a {
     text-decoration: underline;
     font-weight: bold;
 }
@@ -396,7 +396,7 @@
     object-fit: cover;
 }
 
-.ban>a:hover {
+.ban a:hover {
     background-color: black;
     color: white;
     text-decoration: none;
@@ -418,11 +418,11 @@
 }
 
 /*WHO ARE YOU SHOPPING FOR? */
-.what>.wrap>h1 {
+.what .wrap h1 {
     margin-top: 20px;
 }
 
-.what>.wrap>.content {
+.what .wrap .content {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 20px;
@@ -431,19 +431,19 @@
     overflow: hidden;
 }
 
-.content>.same {
+.content .same {
     width: calc(100/3 - 20px);
     min-width: 200px;
     height: 500px;
 }
 
-.content>.same>img {
+.content .same img {
     width: 100%;
     height: 90%;
     object-fit: cover;
 }
 
-.content>.same>h2 {
+.content .same h2 {
     font-size: 18px;
     margin-top: 10px;
 }
@@ -461,7 +461,7 @@
 
 }
 
-.about_me>.wrap {
+.about_me .wrap {
     display: grid;
     grid-template-columns: auto auto;
     gap: 50px;
@@ -471,14 +471,14 @@
     padding-bottom: 30px;
 }
 
-.about_me>.wrap>.left>h1,
-.right>h1 {
+.about_me .wrap .left h1,
+.right h1 {
     font-size: 26px;
 }
 
 
 
-.about_me>.wrap>p {
+.about_me .wrap p {
     line-height: 3;
 }
 
@@ -505,7 +505,7 @@
     width: 50px;
 }
 
-._logo_1>img {
+._logo_1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -552,11 +552,11 @@
     row-gap: 5px;
 }
 
-.FAQ_UL>li {
+.FAQ_UL li {
     text-align: center;
 }
 
-.FAQ_UL>li>a {
+.FAQ_UL li a {
     color: gainsboro;
     font-size: 13px;
 }
@@ -573,7 +573,7 @@
     transition: left .3s ease-in-out;
 }
 
-.menu_hid>.wrap {
+.menu_hid .wrap {
     width: 80%;
     margin: 20px auto;
 }
@@ -584,11 +584,11 @@
     cursor: pointer;
 }
 
-.close>p {
+.close p {
     transition: all .3s ease-in-out;
 }
 
-.close:hover>p {
+.close:hover p {
     background-color: black;
     color: white;
 }
@@ -639,7 +639,7 @@
     border-top: 1px solid black;
 }
 
-.list_supporta>.clist {
+.list_supporta .clist {
     margin-left: 0px;
     margin-top: 10px;
 }
@@ -660,16 +660,16 @@
         grid-template-columns: 15% 55% 30%;
     }
 
-    .info>.over {
+    .info .over {
         width: 90%;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         flex-direction: column;
     }
 
-    .subnav>li>a {
+    .subnav li a {
         font-size: 13px !important;
     }
 
@@ -690,7 +690,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-    .about_me>.wrap {
+    .about_me .wrap {
         display: flex;
         flex-direction: column;
     }
@@ -699,7 +699,7 @@
         height: 200px;
     }
 
-    .members>.over {
+    .members .over {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -708,7 +708,7 @@
         gap: 20px;
     }
 
-    .members>.over>h1 {
+    .members .over h1 {
         text-align: center;
         font-size: 23px;
     }
@@ -751,7 +751,7 @@
         align-items: center;
     }
 
-    .intro>._wrap {
+    .intro ._wrap {
         width: 80%;
         margin: 0 auto;
     }
@@ -760,15 +760,15 @@
         display: block;
     }
 
-    .intro>._wrap>div>h1 {
+    .intro ._wrap div h1 {
         font-size: 20px;
     }
 
-    .intro>._wrap>div>h3 {
+    .intro ._wrap div h3 {
         font-size: 30px;
     }
 
-    .intro>._wrap>div>p {
+    .intro ._wrap div p {
         font-size: 16px;
     }
 
@@ -777,11 +777,11 @@
         grid-template-columns: repeat(2, auto);
     }
 
-    .policy>ul>li:nth-of-type(5) {
+    .policy ul li:nth-of-type(5) {
         grid-column: span 2;
     }
 
-    .policy>ul>li {
+    .policy ul li {
         padding: 0 20px;
         border-left: none;
         margin: 5px 0;
@@ -808,12 +808,12 @@
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         min-height: 320px;
         max-height: 400px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 400px;
     }
@@ -822,7 +822,7 @@
         height: 400px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 45%;
         display: flex;
@@ -836,7 +836,7 @@
 
 @media only screen and (max-width: 740px) {
 
-    .post>span {
+    .post span {
         font-size: 14px;
     }
 
@@ -844,7 +844,7 @@
         grid-template-columns: 25% 50% 25%;
     }
 
-    .ship>.wrap {
+    .ship .wrap {
         width: 95%;
         margin: 10px auto;
     }
@@ -861,11 +861,11 @@
         height: 90px;
     }
 
-    .what>.wrap>.content {
+    .what .wrap .content {
         height: 320px;
     }
 
-    .content>.same {
+    .content .same {
         width: calc(100/3 - 20px);
         height: 300px;
     }
@@ -883,7 +883,7 @@
         width: 169px;
     }
 
-    ._wrap>div {
+    ._wrap div {
         z-index: 10;
         width: 70%;
         display: flex;
