@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function getFormSetting()
     {
-        return view(view: 'pages.setting');
+        $orders = $this->bill();
+        return view('pages.setting', compact('orders'));
     }
 
     public function update(Request $request, $id)
@@ -33,5 +36,9 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+    public function bill() {
+        return Order::where('customer_id', Auth::user()->customer->id)->get();
     }
 }

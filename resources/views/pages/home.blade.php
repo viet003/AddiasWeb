@@ -51,33 +51,35 @@
                 <p>Members's Exculusive</p>
             </div>
             <div class="image-slider">
-                @foreach ($products as $product)
-                    <a href="{{ url('/product/' . $product->id) }}">
-                        <div class="image-item">
-                            @if ($product->images->first())
-                                <div class="image">
-                                    <img src="{{ $product->images->first()->path }}"
-                                        alt="" />
-                                    <p>{{ $product->price }}<sup>đ</sup></p>
+                @if (count($products) != 0)
+                    @foreach ($products as $product)
+                        <a href="{{ url('/product/' . $product->id) }}">
+                            <div class="image-item">
+                                @if ($product->images->first())
+                                    <div class="image">
+                                        <img src="{{ $product->images->first()->path }}"
+                                            alt="" />
+                                        <p>{{ $product->price }}<sup>đ</sup></p>
+                                    </div>
+                                @else
+                                    <div class="image">
+                                        <img src=""
+                                            alt="nope" />
+                                        <p>{{ $product->price }}<sup>đ</sup></p>
+                                    </div>
+                                @endif
+                                <div class="cost">
+                                    <p>{{ $product->name_product }}</p>
+                                    <p>{{ $product->gender }} Chạy</p>
+                                    <p>New</p>
                                 </div>
-                            @else
-                                <div class="image">
-                                    <img src=""
-                                        alt="nope" />
-                                    <p>{{ $product->price }}<sup>đ</sup></p>
-                                </div>
-                            @endif
-                            <div class="cost">
-                                <p>{{ $product->name_product }}</p>
-                                <p>{{ $product->gender }} Chạy</p>
-                                <p>New</p>
-                            </div>
-                            <div class="_border">
+                                <div class="_border">
 
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
+                        </a>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -118,64 +120,68 @@
             <div class="more">
                 <div class="s">
                     <div class="image-slider">
-                        @foreach ($new_products as $item)
-                            <a href="{{ url('/product/' . $item->id) }}">
-                                <div class="image-item">
-                                    @if ($item->images->first())
-                                        <div class="image">
-                                            <img src="{{ $item->images->first()->path }}"
-                                                alt="" />
-                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                        @if (count($new_products) != 0)
+                            @foreach ($new_products as $item)
+                                <a href="{{ url('/product/' . $item->id) }}">
+                                    <div class="image-item">
+                                        @if ($item->images->first())
+                                            <div class="image">
+                                                <img src="{{ $item->images->first()->path }}"
+                                                    alt="" />
+                                                <p>{{ $item->price }}<sup>đ</sup></p>
+                                            </div>
+                                        @else
+                                            <div class="image">
+                                                <img src=""
+                                                    alt="nope" />
+                                                <p>{{ $item->price }}<sup>đ</sup></p>
+                                            </div>
+                                        @endif
+                                        <div class="cost">
+                                            <p>{{ $item->name_product }}</p>
+                                            <p>{{ $item->gender }} Chạy</p>
+                                            <p>New</p>
                                         </div>
-                                    @else
-                                        <div class="image">
-                                            <img src=""
-                                                alt="nope" />
-                                            <p>{{ $item->price }}<sup>đ</sup></p>
-                                        </div>
-                                    @endif
-                                    <div class="cost">
-                                        <p>{{ $item->name_product }}</p>
-                                        <p>{{ $item->gender }} Chạy</p>
-                                        <p>New</p>
-                                    </div>
-                                    <div class="_border">
+                                        <div class="_border">
 
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="s">
                     <div class="classify">
-                        @foreach ($new_products as $item)
-                            <a href="{{ url('/product/' . $item->id) }}">
-                                <div class="image-item">
-                                    @if ($item->images->first())
-                                        <div class="image">
-                                            <img src="{{ $item->images->first()->path }}"
-                                                alt="" />
-                                            <p>{{ $item->price }}<sup>đ</sup></p>
+                        @if (count($new_products) != 0)
+                            @foreach ($new_products as $item)
+                                <a href="{{ url('/product/' . $item->id) }}">
+                                    <div class="image-item">
+                                        @if ($item->images->first())
+                                            <div class="image">
+                                                <img src="{{ $item->images->first()->path }}"
+                                                    alt="" />
+                                                <p>{{ $item->price }}<sup>đ</sup></p>
+                                            </div>
+                                        @else
+                                            <div class="image">
+                                                <img src=""
+                                                    alt="nope" />
+                                                <p>{{ $item->price }}<sup>đ</sup></p>
+                                            </div>
+                                        @endif
+                                        <div class="cost">
+                                            <p>{{ $item->name_product }}</p>
+                                            <p>{{ $item->gender }} Chạy</p>
+                                            <p>New</p>
                                         </div>
-                                    @else
-                                        <div class="image">
-                                            <img src=""
-                                                alt="nope" />
-                                            <p>{{ $item->price }}<sup>đ</sup></p>
-                                        </div>
-                                    @endif
-                                    <div class="cost">
-                                        <p>{{ $item->name_product }}</p>
-                                        <p>{{ $item->gender }} Chạy</p>
-                                        <p>New</p>
-                                    </div>
-                                    <div class="_border">
+                                        <div class="_border">
 
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

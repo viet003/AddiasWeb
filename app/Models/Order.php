@@ -15,8 +15,26 @@ class Order extends Model
         'size',
         'color',
         'bill',
+        'state',
         'quantity'
     ];
+
+    protected $attributes = [
+        'state' => 0, // Default value
+    ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->setDefaultState();
+    }
+
+    private function setDefaultState()
+    {
+        if (!array_key_exists('state', $this->attributes)) {
+            $this->attributes['state'] = 0;
+        }
+    }
 
     public function customer()
     {
@@ -27,5 +45,4 @@ class Order extends Model
     {
         return $this->belongsTo(Product::class);
     }
-
 }

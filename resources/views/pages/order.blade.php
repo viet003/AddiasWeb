@@ -210,6 +210,9 @@
                             if (xhr.status === 401) {
                                 alert('Bạn cần đăng nhập để thanh toán.');
                                 window.location.href = "{{ route('login') }}";
+                            } else if(xhr.status === 422) { 
+                                alert('Vui lòng cập nhật thông tin giao hàng!.');
+                                window.location.href = "{{ route('user.show') }}";
                             } else {
                                 alert('Có lỗi xảy ra. Vui lòng thử lại sau!');
                             }

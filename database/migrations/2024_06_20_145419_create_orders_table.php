@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('color', 200);
             $table->integer('quantity');
             $table->string('bill', 200);
+            $table->integer('state');
             $table->timestamps();
         });
     }

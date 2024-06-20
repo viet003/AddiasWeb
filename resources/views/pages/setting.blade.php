@@ -32,6 +32,8 @@
                         <a class="list-group-item list-group-item-action" data-toggle="list" href="#account-info">Địa
                             chỉ nhận hàng</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-connections">Đơn hàng</a>
+                        <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-notifications">Thông báo</a>
                     </div>
                 </div>
@@ -98,7 +100,8 @@
                         {{-- Địa chỉ nhận hàng --}}
                         <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
-                                <form action="{{ route("customer.update", Auth::user()->customer->id) }}" method="POST" id="updateCustomerForm">
+                                <form action="{{ url("/customer/".Auth::user()->customer->id) }}" method="POST"
+                                    id="updateCustomerForm">
                                     @csrf
                                     <div class="form-group">
                                         <label for="first_name" class="form-label">Họ và đệm</label>
@@ -153,7 +156,57 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        {{-- lịch sử đơn hàng --}}
+                        <div class="tab-pane fade" id="account-connections">
+                            @if (count($orders) != 0)
+                            <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow overflow-y-scroll">
+                                @foreach ($orders as $item)
+                                <div class="card p-4 my-4">
+                                    <div class="row">
+                                        <!-- cart images div -->
+                                        <div
+                                            class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center shadow product_img">
+                                            <img src="{{ $item->product->images->first()->path }}" class="img-fluid"
+                                                alt="cart img">
+                                        </div>
+
+                                        <!-- cart product details -->
+                                        <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+                                            <div class="row">
+                                                <!-- product name  -->
+                                                <div class="col-11 card-title">
+                                                    <h1 class="mb-4 product_name">{{ $item->product->name_product }}
+                                                    </h1>
+                                                    <p class="mb-2">GIỚI TÍNH: {{ $item->product->gender }}</p>
+                                                    <p class="mb-2">COLOR: {{ $item->color }}</p>
+                                                    <p class="mb-3">SIZE: {{ $item->size }}</p>
+                                                </div>
+                                                <!-- quantity inc dec -->
+                                                
+                                            </div>
+                                            <!-- //remover move and price -->
+                                            <div class="row">
+                                                <div class="col-18 gap-2 d-flex justify-content-between remove_wish">
+                                                    <p><i class="fa-solid fa-dollar-sign"></i>
+                                                        {{ $item->bill }}
+                                                    </p>
+                                                    <p><i class="fas fa-heart"></i>
+                                                        @if ($item->status == 0)
+                                                            ĐANG GIAO HÀNG 
+                                                        @else
+                                                            HOÀN THÀNH
+                                                        @endif
+                                                    </p>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                @endforeach
+                            </div>
+                            @endif
+                        </div>
                         {{-- Thông báo --}}
                         <div class="tab-pane fade" id="account-notifications">
                             <div class="card-body pb-2">
@@ -235,33 +288,33 @@
     <div class="" id="alert" style="position: absolute; top: 300px; right: 20px; text-align:start; font-size: 13px">
         <ul style="list-style-type: none; padding: 0;">
             @if (session('success'))
-                <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">
-                    {{ session('success') }}
-                </li>
-                <script>
-                    setTimeout(function () {
+            <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">
+                {{ session('success') }}
+            </li>
+            <script>
+                setTimeout(function () {
                             var alertDiv = document.getElementById('alert');
                             if (alertDiv) {
                                 alertDiv.style.display = 'none';
                             }
                         }, 3000); // 3s
-                </script>
+            </script>
             @endif
 
             @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">
-                        {{ $error }} <i class="fa-solid fa-circle-exclamation"></i>
-                    </li>
-                    <script>
-                        setTimeout(function () {
+            @foreach ($errors->all() as $error)
+            <li style="color: #fff; margin: 5px 0; background-color: #ae3c33;border-radius:20px; padding: 10px 10px">
+                {{ $error }} <i class="fa-solid fa-circle-exclamation"></i>
+            </li>
+            <script>
+                setTimeout(function () {
                                     var alertDiv = document.getElementById('alert');
                                     if (alertDiv) {
                                         alertDiv.style.display = 'none';
                                     }
                                 }, 3000); // 3s
-                    </script>
-                @endforeach
+            </script>
+            @endforeach
             @endif
         </ul>
     </div>

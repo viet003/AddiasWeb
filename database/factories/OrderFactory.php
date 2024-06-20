@@ -25,6 +25,7 @@ class OrderFactory extends Factory
             'color' => $this->faker->safeColorName(),
             'quantity' => $this->faker->numberBetween(1, 100),
             'bill' => $this->faker->uuid,
+            'state' => $this->faker->numberBetween(0,1),
             'created_at' => now(),
             'updated_at' => now(),
         ];
