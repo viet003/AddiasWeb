@@ -15,6 +15,7 @@ class Product extends Model
         'quantity',
         'gender',
         'auto_imei',
+        'brand'
     ];
 
     public function carts()

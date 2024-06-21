@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/cart.css')}}">
-    <title>Giỏ hàng</title>
+    <title>V3Shop</title>
+    <link rel="icon" href=" {{ asset('frontend/images/logo.png') }} " type="image/x-icon">
 </head>
 
 <body class="bg-light">

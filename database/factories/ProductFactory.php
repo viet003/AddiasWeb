@@ -20,12 +20,13 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'name_product' => $this->faker->word,
+            'name_product' => 'Giày ' . $this->faker->word,
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'quantity' => $this->faker->numberBetween(1, 100),
             'gender' => $this->faker->randomElement(['Nam', 'Nữ']),
             'date_added' => $this->faker->dateTime,
             'auto_imei' => $this->faker->uuid,
+            'brand' => $this->faker->randomElement(['Performance', 'Originals', 'Sportswear', 'TERREX']),
             'created_at' => now(),
             'updated_at' => now(),
         ];

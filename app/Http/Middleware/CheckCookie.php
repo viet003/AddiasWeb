@@ -26,13 +26,11 @@ class CheckCookie
             // dd($token);
             $user = User::where('remember_token', $token)->first();
             if ($user) {
-                // dd($user->email);
                 Auth::login($user);
-                return redirect('/');
+                return redirect()->route('shop');
             }
         }
 
-        // Cho phép request tiếp tục nếu không có cookie 'remember_me'
         return $next($request);
     }
 }
