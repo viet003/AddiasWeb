@@ -19,7 +19,6 @@ use App\Http\Middleware\SaveQueryFilter;
 
 // Đăng ký các route
 Route::get('/', [HomeController::class, 'viewController'])->name('shop');
-Route::get('/admin', [AdminController::class, 'check'])->name('admin');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/search', [SearchController::class, 'search'])->middleware(SaveQuery::class)->name('search');
@@ -27,6 +26,9 @@ Route::get('/searchfilter', [SearchController::class, 'searchFilter'])->middlewa
 Route::get('/male', [HomeController::class, 'male'])->name('male');
 Route::get('/female', [HomeController::class, 'female'])->name('female');
 
+Route::get('/admin', [AdminController::class, 'check'])->name('admin')->middleware(Authenticate::class);
+Route::resource('products', ProductController::class);
+Route::resource('users', UserController::class);
 
 Route::middleware([CheckLogin::class])->group(function () {
     Route::get('/login', [AuthController::class, 'getFormLogin'])->name('login')->middleware(CheckCookie::class);

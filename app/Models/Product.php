@@ -13,16 +13,14 @@ class Product extends Model
         'name_product',
         'price',
         'quantity',
-        'gender',
-        'auto_imei',
-        'brand'
+        'gender'
     ];
 
     public function carts()
     {
         return $this->hasMany(Cart::class);
     }
-
+  
     public function details()
     {
         return $this->hasMany(Detail::class);

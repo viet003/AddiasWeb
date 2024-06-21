@@ -56,11 +56,11 @@ class AppServiceProvider extends ServiceProvider
                 $gender = ''; 
             }
         
-            if (App::bound('brand')) {
-                $brand = App::make('brand');
-            } else {
-                $brand = ''; 
-            }
+            // if (App::bound('brand')) {
+            //     $brand = App::make('brand');
+            // } else {
+            //     $brand = ''; 
+            // }
         
             if (App::bound('price')) {
                 $price = App::make('price');
@@ -70,15 +70,9 @@ class AppServiceProvider extends ServiceProvider
         
             // Thêm các tham số vào tất cả các view
             $view->with('gender', $gender);
-            $view->with('brand', $brand);
+            // $view->with('brand', $brand);
             $view->with('price', $price);
             $view->with('query', $searchValue);
-        });
-
-
-        View::composer('*', function ($view) {
-            $brands = Product::distinct()->pluck('brand');
-            $view->with('brands', $brands);
         });
 
 

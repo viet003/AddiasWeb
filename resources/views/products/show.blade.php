@@ -1,6 +1,6 @@
-@extends('dishes.layouts')
+@extends('products.layouts')
 
-@section('content')
+@section('content_product')
 
 <div class="row justify-content-center mt-3">
     <div class="col-md-8">
@@ -8,46 +8,46 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    Dish Information
+                    Thông tin sản phẩm
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('dishes.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
                 </div>
             </div>
             <div class="card-body">
 
                     <div class="row">
-                        <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>Code:</strong></label>
+                        <label for="id" class="col-md-4 col-form-label text-md-end text-start"><strong>Id:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $dish->code }}
+                            {{ $product->id }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="name" class="col-md-4 col-form-label text-md-end text-start"><strong>Name:</strong></label>
+                        <label for="name_product" class="col-md-4 col-form-label text-md-end text-start"><strong>Tên:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $dish->name }}
+                            {{ $product->name_product }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Tag:</strong></label>
+                        <label for="price" class="col-md-4 col-form-label text-md-end text-start"><strong>Giá:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $dish->tag }}
+                            {{ $product->price }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="price" class="col-md-4 col-form-label text-md-end text-start"><strong>Ingredients:</strong></label>
+                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Số lượng:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $dish->ingredients }}
+                            {{ $product->quantity }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="description" class="col-md-4 col-form-label text-md-end text-start"><strong>Description:</strong></label>
+                        <label for="gender" class="col-md-4 col-form-label text-md-end text-start"><strong>Dành cho:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $dish->description }}
+                            {{ $product->gender }}
                         </div>
                     </div>
         

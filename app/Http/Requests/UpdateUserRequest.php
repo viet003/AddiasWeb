@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDishRequest extends FormRequest
+class UpdateDishRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,11 @@ class StoreDishRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'required|string|max:50|unique:dishes,code',
-            'name' => 'required|string|max:250',
-            'tag' => 'required|string|max:250',
-            'ingredients' => 'required|string|max:250',
-            'description' => 'nullable|string'
+            'id' => 'required|string|max:50|unique:users,id'.$this->user->id,
+            'user_name' => 'required|string|max:100',
+            'email' => 'required|string|max:250',
+            'password' => 'required|string|max:250',
+            'accesToken' => 'nullable|string'
         ];
     }
 }

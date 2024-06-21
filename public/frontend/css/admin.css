@@ -1,0 +1,213 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Muli-Regular";
+	color: #666;
+	font-size: 13px;
+	margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: "Muli-Regular";
+	color: #333;
+	font-size: 13px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+ul {
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+:focus {
+	outline: none;
+}
+
+.wrapper {
+	min-height: 100vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	/* align-items: center; */
+	flex-direction: column;
+}
+
+.inner {
+	min-width: 850px;
+	min-height: 500px;
+	margin: auto;
+	padding-top: 68px;
+	padding-bottom: 48px;
+	background: url('../images/registration-form-2.jpg');
+	object-fit: cover;
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 22px;
+		font-family: "Muli-Bold";
+		text-align: center;
+		margin-bottom: 32px;
+		color: #333;
+		letter-spacing: 2px;
+	}
+}
+.form-admin {
+	width: 50%;
+	padding-left: 45px;
+}
+
+.form-group {
+	display: flex;
+
+	.form-wrapper {
+		width: 50%;
+
+		&:first-child {
+			margin-right: 20px;
+		}
+	}
+}
+
+.form-wrapper {
+	margin-bottom: 17px;
+
+	label {
+		margin-bottom: 9px;
+		display: block;
+	}
+}
+
+.form-control {
+	border: 1px solid #ccc;
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 0 20px;
+	border-radius: 20px;
+	font-family: "Muli-Bold";
+	background: none;
+
+	&:focus {
+		border: 1px solid #ae3c33;
+	}
+}
+
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	padding-left: 20px;
+
+	option[value=""][disabled] {
+		display: none;
+	}
+}
+
+.checkbox {
+    position: relative;
+
+    label {
+        padding-left: 22px;
+        cursor: pointer;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 12px;
+    width: 13px;
+    border-radius: 2px;
+    background-color: #ebebeb;
+    border: 1px solid #ccc;
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        display: none;
+        width: 3px;
+        height: 7px;
+        border: solid #000;
+        border-width: 0 2px 2px 0;
+        content: '';
+    }
+}
+
+
+.gto-register {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 3px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {
+	.inner {
+		min-width: 768px;
+	}
+}
+
+@media (max-width: 767px) {
+	.inner {
+		min-width: auto;
+		background: none;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	form {
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}

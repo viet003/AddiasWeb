@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller{
     public function check()
     {
-        if(Auth::id())
+        if(Auth::check())
         {
             $role = Auth()->user()->role;
 
@@ -20,12 +20,9 @@ class AdminController extends Controller{
             } 
             else if($role == 0)
             {
-                return view('pages.home');  
+                return redirect()->back()->withErrors('Bạn cần có quyền hạn Administrator!');
             }
         }
-        else
-        {
-            return redirect()->back()->with('error','Bạn cần có quyền hạn Administrator!');
-        }
     }
+
 }

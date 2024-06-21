@@ -99,9 +99,9 @@
         @endforeach
     </div>
 
-    <div class="flex flex-row my-10 mx-20 justify-around items-center">
+    <!-- <div class="flex flex-row my-10 mx-20 justify-around items-center">
         {{ $products->links() }}
-    </div>
+    </div> -->
 
     {{-- header --}}
     @include('component.footer')

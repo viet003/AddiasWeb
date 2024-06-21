@@ -17,8 +17,30 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'id', 'user_name', 'email', 'password', 'role', 'accesToken'
+        'id', 
+        'user_name', 
+        'email', 
+        'password', 
+        'role', 
+        'accesToken'
     ];
+
+    protected $attributes = [
+        'accesToken' => 0, // Default value
+    ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->setDefaultState();
+    }
+
+    private function setDefaultState()
+    {
+        if (!array_key_exists('accesToken', $this->attributes)) {
+            $this->attributes['accesToken'] = 0;
+        }
+    }
 
     /**
      * The attributes that should be hidden for serialization.
