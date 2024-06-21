@@ -346,6 +346,7 @@
             <div class="search_help">
                 <div class="help_mn">
                     <ul class="help_ul">
+                        <li><a class="button-mn" href="{{ route('admin') }}">Quản lý</a></li>
                         <li><button class="button-mn">Trợ giúp</button></li>
                         <li><button class="button-mn">Trình theo dõi đơn hàng</button></li>
                         <li>

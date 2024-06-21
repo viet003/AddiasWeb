@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\UserController;
+use App\Http\Controllers\Admin\AdminController;
 // Middleware
 use App\Http\Middleware\CheckCookie;
 use App\Http\Middleware\CheckLogin;
@@ -16,6 +17,7 @@ use App\Http\Middleware\Authenticate;
 
 // Đăng ký các route
 Route::get('/', [HomeController::class, 'viewController'])->name('shop');
+Route::get('/admin', [AdminController::class, 'check'])->name('admin');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/search', [SearchController::class, 'search'])->name('search');

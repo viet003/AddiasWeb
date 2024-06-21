@@ -90,8 +90,7 @@
                             </span>
                         </div>
                         <div class="img_Ds">
-                            <img src="{{ $images->first()->path }}"
-                                alt="">
+                            
                         </div>
                     </div>
                 </div>

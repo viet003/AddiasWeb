@@ -74,7 +74,6 @@
                                     <p>New</p>
                                 </div>
                                 <div class="_border">
-
                                 </div>
                             </div>
                         </a>
