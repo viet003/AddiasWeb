@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <title>V3Shop</title>
+    <link rel="icon" href=" {{ asset('frontend/images/logo.png') }} " type="image/x-icon">
 </head>
 <body>
     {{-- header --}}

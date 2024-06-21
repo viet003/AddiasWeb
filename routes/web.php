@@ -2,7 +2,7 @@
 // Controller
 
 use App\Http\Controllers\Api\CartController;
-use App\Http\Controllers\Api\SearchController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Client\ProductController;
@@ -13,12 +13,15 @@ use App\Http\Controllers\Client\UserController;
 use App\Http\Middleware\CheckCookie;
 use App\Http\Middleware\CheckLogin;
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\SaveQuery;
+use App\Http\Middleware\SaveQueryFilter;
 
 // Đăng ký các route
 Route::get('/', [HomeController::class, 'viewController'])->name('shop');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'search'])->middleware(SaveQuery::class)->name('search');
+Route::get('/searchfilter', [SearchController::class, 'searchFilter'])->middleware(SaveQueryFilter::class)->name('searchfilter');
 
 
 Route::middleware([CheckLogin::class])->group(function () {

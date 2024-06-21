@@ -109,8 +109,8 @@ class AuthController extends Controller
 
         User::where('email', $request->email)->update(['password' => Hash::make($pass)]);
 
-        Mail::send('mails.mail', compact('pass'), function ($email) {
-            $email->to('0bitodev21@gmail.com', 'Admin');
+        Mail::send('mails.mail', compact('pass'), function ($email) use ($request) {
+            $email->to($request->email, 'Admin');
             $email->subject('Lấy lại mật khẩu');
         });
 

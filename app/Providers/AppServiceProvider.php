@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,5 +37,46 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('totalItems', $totalItems);
             }
         });
+
+        View::composer('*', function ($view) {
+            if (App::bound('query')) {
+                $searchValue = App::make('query');
+            } else {
+                $searchValue = 'Giày'; // Giá trị mặc định nếu không có
+            }
+            
+            if (App::bound('gender')) {
+                $gender = App::make('gender');
+            } else {
+                $gender = ''; 
+            }
+        
+            if (App::bound('brand')) {
+                $brand = App::make('brand');
+            } else {
+                $brand = ''; 
+            }
+        
+            if (App::bound('price')) {
+                $price = App::make('price');
+            } else {
+                $price = ''; 
+            }
+        
+            // Thêm các tham số vào tất cả các view
+            $view->with('gender', $gender);
+            $view->with('brand', $brand);
+            $view->with('price', $price);
+            $view->with('query', $searchValue);
+        });
+
+
+        View::composer('*', function ($view) {
+            $brands = Product::distinct()->pluck('brand');
+            $view->with('brands', $brands);
+        });
+
+
+        Paginator::useTailwind();
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('price', 12, 2);
             $table->integer('quantity');
             $table->string('gender', 30);  
+            $table->string('brand',200);
             $table->dateTime('date_added')->useCurrent();
             $table->string('auto_imei', 36)->nullable();
             $table->timestamps();

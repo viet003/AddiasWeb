@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ALADIN Stores</title>
+    <title>V3Shop</title>
     <link rel="icon" href="Infoproduct/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('frontend/css/product.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href=" {{ asset('frontend/images/logo.png') }} " type="image/x-icon">
 </head>
 
 <body class="body">
@@ -444,7 +445,7 @@
         </div>
         <div class="right_content">
             <div>
-                <p>Originals</p>
+                <p>{{ $product->brand }}</p>
                 <h1>{{ $product->name_product }}</h1>
                 <p>{{ $product->price}}₫</p>
             </div>
