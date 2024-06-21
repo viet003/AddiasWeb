@@ -22,6 +22,8 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.s
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/search', [SearchController::class, 'search'])->middleware(SaveQuery::class)->name('search');
 Route::get('/searchfilter', [SearchController::class, 'searchFilter'])->middleware(SaveQueryFilter::class)->name('searchfilter');
+Route::get('/male', [HomeController::class, 'male'])->name('male');
+Route::get('/female', [HomeController::class, 'female'])->name('female');
 
 
 Route::middleware([CheckLogin::class])->group(function () {

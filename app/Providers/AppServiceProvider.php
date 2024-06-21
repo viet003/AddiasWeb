@@ -27,7 +27,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
+            $products = Product::inRandomOrder()->limit(10)->get();
+            $new_products = Product::orderBy('created_at', 'desc')->take(10)->get();
             $totalProducts = Product::count();
+            
+            $view->with('products', $products);
+            $view->with('new_products', $new_products);
             $view->with('totalProducts', $totalProducts);
         });
 

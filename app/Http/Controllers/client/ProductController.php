@@ -45,7 +45,7 @@ class ProductController extends Controller
         $product->load('images');
 
         if (!$product) {
-            abort(404, 'Product not found');
+            abort(404, 'Khong ton tai san pham');
         }
 
         $images = $product->images;

@@ -62,7 +62,7 @@
             <div class="main">
                 <ul class="subnav">
                     <li>
-                        <a href="Male/pageMale.html"><b>NAM</b></a>
+                        <a href="{{ route('male') }}"><b>NAM</b></a>
                         <div class="sub_content">
                             <div class="content_link">
                                 <div class="content_1">
@@ -152,7 +152,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="Female/pageFemale.html"><b>NỮ</b></a>
+                        <a href="{{ route('female') }}"><b>NỮ</b></a>
                         <div class="sub_content">
                             <div class="content_link">
                                 <div class="content_1">

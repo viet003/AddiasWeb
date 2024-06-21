@@ -2,21 +2,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function viewController() {
+        return view('pages.home');
+    }
 
-        $products = Product::inRandomOrder()->limit(10)->get();
-        $new_products = Product::orderBy('created_at', 'desc')->take(10)->get();
+    public function male() {
+        $maleProducts = Product::where('gender', 'Nam')->take(10)->get();
+        return view('pages.male', compact('maleProducts'));
+    }
 
-        return view('pages.home', compact([
-            'products',
-            'new_products',
-        ]));
+    public function female() {
+        $femaleProducts = Product::where('gender', 'Nữ')->take(10)->get();
+        return view('pages.female', compact('femaleProducts'));
     }
 }
