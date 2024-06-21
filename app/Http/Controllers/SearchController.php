@@ -16,7 +16,6 @@ class SearchController extends Controller
 
         // Perform the search
         $products = Product::where('name_product', 'LIKE', '%' . $query . '%')
-            ->orWhere('gender', 'LIKE', '%' . $query . '%')
             ->paginate(10)
             ->appends($request->except('page'));
 
@@ -30,10 +29,11 @@ class SearchController extends Controller
         $brand = $request->input('brand');
         $price = $request->input('price');
 
+        // dd($query, $gender, $brand, $price);
+
         $products = Product::query()
             ->when($query, function ($queryBuilder, $query) {
-                return $queryBuilder->where('name_product', 'LIKE', '%' . $query . '%')
-                                    ->orWhere('gender', 'LIKE', '%' . $query . '%');
+                return $queryBuilder->where('name_product', 'LIKE', '%' . $query . '%');
             })
             ->when($gender, function ($queryBuilder, $gender) {
                 return $queryBuilder->where('gender', $gender);
